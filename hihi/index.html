@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>
+    if (!sessionStorage.getItem('connecte')) {
+      window.location.replace('pages/login.html');
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Globe — Histoire des Jeux Olympiques</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <div id="loader">
+    <div class="loader-rings">
+      <span class="lr lr-1"></span>
+      <span class="lr lr-2"></span>
+      <span class="lr lr-3"></span>
+      <span class="lr lr-4"></span>
+      <span class="lr lr-5"></span>
+    </div>
+    <p class="loader-text">Chargement du globe…</p>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="8"  cy="14" r="5" stroke="#0085C7" stroke-width="2" fill="none"/>
+        <circle cx="14" cy="10" r="5" stroke="#F4C300" stroke-width="2" fill="none"/>
+        <circle cx="20" cy="14" r="5" stroke="#009F3D" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="logo-text">Olympic<strong>Globe</strong></span>
+    </div>
+    <div class="nav-liens">
+      <a href="#section-apropos"   class="nav-lien">À propos</a>
+      <a href="#section-chiffres"  class="nav-lien">Chiffres</a>
+      <a href="#section-editions"  class="nav-lien">Éditions</a>
+      <a href="#section-newsletter" class="nav-lien">Newsletter</a>
+    </div>
+    <button class="nav-deconnexion" id="bouton-deconnexion">Déconnexion</button>
+  </nav>
+
+  <section class="section-globe" id="section-globe">
+
+    <canvas id="globe-canvas"></canvas>
+
+    <header id="hero-text">
+      <p class="hero-eyebrow">Explorez l'histoire</p>
+      <h1>Jeux<br /><em style="color: rgb(255, 223, 39);">Olympiques</em></h1>
+      <p class="hero-sub">4 éditions · 4 continents · 1 globe interactif</p>
+      <div class="hero-scroll-hint">
+        <span class="dot"></span> Faites tourner la planète
+      </div>
+      <a href="#section-apropos" class="hero-fleche-bas" aria-label="Scroller vers le contenu">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </header>
+
+    <div id="tooltip">
+      <div class="tt-flag" id="tt-flag"></div>
+      <div class="tt-body">
+        <span class="tt-city" id="tt-city"></span>
+        <span class="tt-year" id="tt-year"></span>
+        <span class="tt-cta">Cliquer pour explorer →</span>
+      </div>
+    </div>
+
+    <div class="globe-hint">
+      Glisser pour tourner &nbsp;·&nbsp; Cliquer sur un point pour explorer
+    </div>
+
+  </section>
+
+  <section class="section-contenu" id="section-apropos">
+    <div class="section-interieur">
+
+      <span class="section-etiquette">À propos</span>
+      <h2 class="section-titre">L'histoire des <em>Jeux Olympiques</em></h2>
+
+      <div class="apropos-grille">
+        <div class="apropos-texte">
+          <p class="texte-paragraphe">
+            Les JEUX OLYMPIQUES est un événement planétaire qui englobe la grande majorité des pays du globe et leurs différent athlètes professionnel dans des disciplines connues tel que le Football, soulevé de poids, Basketball et bien d’autres.
+Crée à Athènes (Grèce) en l’an 1896, dans le but initial d’unir le peuple grec grâce au sport et les différentes disciplines ou chaque participant travail pour exceller et montrer son sérieux et son assiduité, et a travers le temps, cet événement c’est étendue à l’échelle internationale.
+Tous les 4 ans, dans une ville d’un pays choisi par le Comité International Olympique (CIO), les événements auront lieu, en période estival pour les jeux d’été et hivernal pour les jeux d’hivers avec des épreuves calibré en fonction de la période,  puis  les pays concerner enverront leurs athlètes dans un seul but, gagner des médailles d’or et embellir l’image sportive du pays.
+          </p>
+         
+        </div>
+        <div class="apropos-citation">
+          <blockquote class="citation-bloc">
+            <p class="citation-texte">
+              « L'important dans la vie ce n'est point le triomphe,
+              mais le combat. »
+            </p>
+            <cite class="citation-auteur">— Pierre de Coubertin</cite>
+          </blockquote>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-sombre" id="section-chiffres">
+    <div class="section-interieur">
+
+      <span class="section-etiquette">En chiffres</span>
+      <h2 class="section-titre">Les Jeux en <em>statistiques</em></h2>
+
+      <div class="chiffres-grille">
+
+        <div class="chiffre-carte">
+          <span class="chiffre-valeur">1896</span>
+          <span class="chiffre-label">Première édition moderne</span>
+        </div>
+
+        <div class="chiffre-carte">
+          <span class="chiffre-valeur">206</span>
+          <span class="chiffre-label">Nations participantes</span>
+        </div>
+
+        <div class="chiffre-carte">
+          <span class="chiffre-valeur">33</span>
+          <span class="chiffre-label">Éditions organisées</span>
+        </div>
+
+        <div class="chiffre-carte">
+          <span class="chiffre-valeur">10 714</span>
+          <span class="chiffre-label">Athlètes à Paris 2024</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-contenu" id="section-editions">
+    <div class="section-interieur">
+
+      <span class="section-etiquette">Les éditions</span>
+      <h2 class="section-titre">Explorez les <em>Jeux</em></h2>
+
+      <div class="editions-grille">
+
+        <a href="pages/paris-2024.html" class="edition-carte">
+          <div class="edition-drapeau">🇫🇷</div>
+          <div class="edition-infos">
+            <span class="edition-annee">2024</span>
+            <span class="edition-ville">Paris</span>
+            <span class="edition-pays">France</span>
+          </div>
+          <span class="edition-fleche">→</span>
+        </a>
+
+        <a href="pages/tokyo-2020.html" class="edition-carte">
+          <div class="edition-drapeau">🇯🇵</div>
+          <div class="edition-infos">
+            <span class="edition-annee">2020</span>
+            <span class="edition-ville">Tokyo</span>
+            <span class="edition-pays">Japon</span>
+          </div>
+          <span class="edition-fleche">→</span>
+        </a>
+
+        <a href="pages/rio-2016.html" class="edition-carte">
+          <div class="edition-drapeau">🇧🇷</div>
+          <div class="edition-infos">
+            <span class="edition-annee">2016</span>
+            <span class="edition-ville">Rio de Janeiro</span>
+            <span class="edition-pays">Brésil</span>
+          </div>
+          <span class="edition-fleche">→</span>
+        </a>
+
+        <a href="pages/london-2012.html" class="edition-carte">
+          <div class="edition-drapeau">🇬🇧</div>
+          <div class="edition-infos">
+            <span class="edition-annee">2012</span>
+            <span class="edition-ville">Londres</span>
+            <span class="edition-pays">Royaume-Uni</span>
+          </div>
+          <span class="edition-fleche">→</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-sombre" id="section-newsletter">
+    <div class="section-interieur section-interieur--centre">
+
+      <span class="section-etiquette">Newsletter</span>
+      <h2 class="section-titre">Restez <em>informé</em></h2>
+      <p class="description-newsletter">
+        Recevez les actualités des Jeux Olympiques, les résultats
+        et les prochains événements directement dans votre boîte mail.
+      </p>
+
+      <div class="formulaire-newsletter">
+        <input
+          type="email"
+          id="champ-email-newsletter"
+          class="input-newsletter"
+          placeholder="Entrez votre adresse e-mail"
+        />
+        <button class="bouton-newsletter" id="bouton-newsletter">
+          S'inscrire
+        </button>
+      </div>
+      <span class="message-newsletter" id="message-newsletter"></span>
+
+    </div>
+  </section>
+
+  <footer class="pied-de-page">
+    <div class="footer-anneaux">
+      <span class="fa fa-bleu"></span>
+      <span class="fa fa-jaune"></span>
+      <span class="fa fa-noir"></span>
+      <span class="fa fa-vert"></span>
+      <span class="fa fa-rouge"></span>
+    </div>
+    <p class="footer-texte">© 2024 Olympic Globe — Projet Web L2 Informatique</p>
+    <p class="footer-sous-texte">Fait avec passion pour l'histoire des Jeux Olympiques</p>
+  </footer>
+
+  <div id="transition-overlay">
+    <div class="to-rings">
+      <span class="tor tor-1"></span>
+      <span class="tor tor-2"></span>
+      <span class="tor tor-3"></span>
+      <span class="tor tor-4"></span>
+      <span class="tor tor-5"></span>
+    </div>
+    <div class="to-city" id="to-city-name"></div>
+    <div class="to-year" id="to-year-name"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/gsap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/index.js"></script>
+
+</body>
+</html>
