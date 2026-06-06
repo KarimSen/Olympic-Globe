@@ -96,8 +96,8 @@ Il n'y a pas de base de données. Les comptes sont sauvegardés dans le `localSt
 ---
 
 Les participants : 
-SENANI Karim
-TAMANI Amazigh
+SENANI Karim - Email : karim.senani@fgei.ummto.dz
+TAMANI Amazigh - Email : amazigh.tamani@fgei.ummto.dz
 HAMIDI Rabah
 AIT ABDELKAOUI Faiza
 BOUDJELLAL Rayan
