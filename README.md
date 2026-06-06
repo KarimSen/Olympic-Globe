@@ -3,9 +3,9 @@
 Site web sur l'histoire des Jeux Olympiques, réalisé dans le cadre du module développement web en L2 Informatique.
 
 Le site couvre 4 éditions : Paris 2024, Tokyo 2020, Rio 2016 et Londres 2012.
-"important"
+
 > Une connexion internet est nécessaire au premier chargement pour Three.js et les polices!!!
-"important"
+
 ---
 
 ## Structure des fichiers
