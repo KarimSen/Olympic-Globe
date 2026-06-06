@@ -1,0 +1,1588 @@
+:root {
+    --or-vif:       #f4a7b9;   /* sakura rose vif */
+    --or-doux:      #d4728a;   /* rose pivoine */
+    --or-profond:   #a0455a;   /* rose profond */
+    --bleu-nuit:    #0d0a0e;   /* noir encre sumi */
+    --bleu-fonce:   #130e14;   /* noir prune foncé */
+    --bleu-moyen:   #2a1a2e;   /* aubergine nuit */
+    --bleu-clair:   #4a2060;   /* violet wisteria */
+    --rouge-tokyo:  #c0392b;   /* rouge torii */
+    --blanc-creme:  #fdf6f0;   /* blanc washi */
+    --blanc-dim:    rgba(253, 246, 240, 0.65);
+    --gris-carte:   rgba(255, 255, 255, 0.04);
+    --police-titre: 'Rajdhani', sans-serif;
+    --police-texte: 'Cormorant Garamond', serif;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--bleu-nuit);
+    font-family: var(--police-texte);
+    color: var(--blanc-creme);
+    overflow-x: hidden;
+}
+.page-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10, 15, 30, 0.97), transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(244, 167, 185, 0.15);
+}
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--blanc-dim);
+    font-family: var(--police-titre);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+.back-btn::before {
+    content: '←';
+    font-size: 16px;
+    transition: transform 0.25s ease;
+}
+.back-btn:hover {
+    color: var(--or-vif);
+}
+.back-btn:hover::before {
+    transform: translateX(-4px);
+}
+.nav-edition {
+    font-family: var(--police-titre);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--or-doux);
+}
+.top-logo {
+    position: absolute;
+    top: 70px;
+    left: 44px;
+    width: 90px;
+    z-index: 100;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+}
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 6%;
+    gap: 40px;
+    background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--bleu-fonce) 60%, #1a0d18 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(244, 167, 185, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(74, 32, 96, 0.15) 0%, transparent 40%);
+    pointer-events: none;
+}
+.hero-text {
+    flex: 1.2;
+    z-index: 10;
+    text-align: center;
+}
+.jo-title {
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 0.85;
+    display: inline-block;
+}
+.red.small {
+    color: var(--rouge-tokyo);
+    display: block;
+    font-size: 3.5rem;
+    letter-spacing: 14px;
+    font-family: var(--police-titre);
+}
+.white.medium {
+    color: var(--blanc-creme);
+    display: block;
+    font-size: 7rem;
+    letter-spacing: 4px;
+    font-family: var(--police-titre);
+    font-weight: 300;
+}
+.blue-tokyo.large {
+    color: var(--or-vif);
+    display: block;
+    font-size: 9rem;
+    letter-spacing: -2px;
+    font-family: var(--police-titre);
+    font-weight: 700;
+    text-shadow: 0 0 60px rgba(244, 167, 185, 0.35);
+}
+.hero-image-container {
+    flex: 2;
+    height: 520px;
+    position: relative;
+}
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.8s ease-in-out;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(244, 167, 185, 0.2);
+}
+.slide.active {
+    opacity: 1;
+}
+.section-contexte {
+    width: 100%;
+    padding: 90px 0;
+    background: linear-gradient(180deg,
+        #1a0d18 0%,
+        #220f20 40%,
+        #2a1228 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+.section-contexte::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 10% 60%, rgba(192, 57, 43, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 90% 30%, rgba(244, 167, 185, 0.08) 0%, transparent 45%);
+    pointer-events: none;
+}
+.contexte-interieur {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5%;
+    position: relative;
+    z-index: 2;
+}
+.contexte-entete {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.contexte-etiquette {
+    display: inline-block;
+    font-family: var(--police-titre);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--or-doux);
+    border: 1px solid rgba(244, 167, 185, 0.35);
+    padding: 5px 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.contexte-titre {
+    font-family: var(--police-titre);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--blanc-creme);
+    margin: 0 0 14px;
+    line-height: 1.1;
+}
+.contexte-titre em {
+    font-style: normal;
+    color: var(--or-vif);
+}
+.contexte-sous-titre {
+    font-family: var(--police-texte);
+    font-size: 1.1rem;
+    color: var(--blanc-dim);
+    max-width: 540px;
+    margin: 0 auto;
+    font-style: italic;
+    line-height: 1.6;
+}
+.bande-tricolore {
+    display: flex;
+    height: 4px;
+    width: 80px;
+    margin: 22px auto 0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.bande-tricolore span { flex: 1; }
+.bande-tricolore span:nth-child(1) { background: var(--rouge-tokyo); }
+.bande-tricolore span:nth-child(2) { background: var(--blanc-creme); }
+.bande-tricolore span:nth-child(3) { background: var(--rouge-tokyo); }
+.chiffres-cles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 60px;
+}
+.chiffre-cle-carte {
+    background: rgba(244, 167, 185, 0.07);
+    border: 1px solid rgba(244, 167, 185, 0.18);
+    border-radius: 14px;
+    padding: 28px 16px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.chiffre-cle-carte:hover {
+    transform: translateY(-5px);
+    background: rgba(244, 167, 185, 0.13);
+}
+.chiffre-cle-icone {
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+    display: block;
+}
+.chiffre-cle-valeur {
+    display: block;
+    font-family: var(--police-titre);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--or-vif);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.chiffre-cle-label {
+    font-family: var(--police-titre);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blanc-dim);
+}
+.contexte-colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 60px;
+}
+.contexte-bloc {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 3px solid var(--or-doux);
+    border-radius: 0 12px 12px 0;
+    padding: 26px 26px 26px 22px;
+}
+.contexte-bloc-titre {
+    font-family: var(--police-titre);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--or-vif);
+    margin: 0 0 10px;
+}
+.contexte-bloc-texte {
+    font-family: var(--police-texte);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--blanc-dim);
+    margin: 0;
+}
+.contexte-bloc-texte strong {
+    color: var(--blanc-creme);
+    font-weight: 600;
+}
+.contexte-citation {
+    background: rgba(192, 57, 43, 0.07);
+    border: 1px solid rgba(192, 57, 43, 0.2);
+    border-radius: 16px;
+    padding: 36px 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+.contexte-citation::before {
+    content: '«';
+    position: absolute;
+    top: -14px;
+    left: 34px;
+    font-size: 5rem;
+    font-family: Georgia, serif;
+    color: rgba(244, 167, 185, 0.2);
+    line-height: 1;
+}
+.citation-texte {
+    font-family: var(--police-texte);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: rgba(245, 240, 232, 0.9);
+    margin: 0 0 14px;
+    line-height: 1.7;
+}
+.citation-auteur {
+    font-family: var(--police-titre);
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--or-doux);
+}
+.ceremoni-overture {
+    width: 100%;
+    padding: 110px 0;
+    background: linear-gradient(180deg, #fdf0f3 0%, #f5e0e8 100%);
+    color: #1a1205;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ceremoni-container {
+    width: 90%;
+    max-width: 1500px;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+.ceremoni-title-block {
+    flex: 1;
+    position: sticky;
+    top: 40px;
+    text-align: left;
+}
+.ceremoni-title-block h2 {
+    font-family: var(--police-titre);
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    color: #1a1205;
+    letter-spacing: -0.5px;
+}
+.ceremoni-title-block h2 .highlight {
+    color: var(--bleu-clair);
+}
+.ceremoni-title-block .dates {
+    font-family: var(--police-titre);
+    font-size: 1.3rem;
+    color: #444;
+    margin: 0 0 28px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+.decorative-line {
+    width: 70px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--or-doux), var(--rouge-tokyo));
+    border-radius: 3px;
+}
+.ceremoni-content-card {
+    flex: 1.4;
+    background: #ffffff;
+    padding: 55px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(26, 18, 5, 0.1);
+    border: 1px solid rgba(244, 167, 185, 0.15);
+    text-align: left;
+}
+.ceremoni-content-card h3 {
+    font-family: var(--police-titre);
+    font-size: 1.8rem;
+    margin: 0 0 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1205;
+    position: relative;
+}
+.ceremoni-content-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--or-doux), transparent);
+}
+.ceremoni-content-card p {
+    font-family: sans-serif;
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.85;
+    margin-bottom: 22px;
+}
+.ceremoni-content-card p:last-of-type {
+    margin-bottom: 0;
+}
+.ceremoni-content-card strong {
+    color: #1a1205;
+    font-weight: 800;
+}
+.sports-section {
+    padding: 90px 0;
+    background: linear-gradient(180deg, #0d0a10 0%, #100816 100%);
+    color: var(--blanc-creme);
+    text-align: center;
+}
+.main-carousel-title {
+    font-family: var(--police-titre);
+    font-size: 2.6rem;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blanc-creme);
+}
+.main-carousel-subtitle {
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    color: var(--blanc-dim);
+    margin: 0 0 50px;
+}
+.carousel-container {
+    position: relative;
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.carousel-track-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+.carousel-track {
+    display: flex;
+    gap: 40px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    padding-left: 7.5%;
+}
+.sport-card {
+    flex: 0 0 85%;
+    background: #1a0f1e;
+    border: 1px solid rgba(244, 167, 185, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: border-color 0.3s ease;
+}
+.sport-card:hover {
+    border-color: rgba(244, 167, 185, 0.3);
+}
+.sport-image-wrapper {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+.sport-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.sport-card:hover .sport-image-wrapper img {
+    transform: scale(1.04);
+}
+.sport-tag {
+    position: absolute;
+    bottom: 18px;
+    left: 32px;
+    background: rgba(10, 15, 30, 0.9);
+    color: var(--or-vif);
+    padding: 7px 16px;
+    border-radius: 30px;
+    font-family: var(--police-titre);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(244, 167, 185, 0.35);
+}
+.sport-info {
+    padding: 22px 28px 16px;
+    background: #1a0f1e;
+}
+.sport-date-badge {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 0.82rem;
+    background: rgba(244, 167, 185, 0.1);
+    color: var(--or-doux);
+    border: 1px solid rgba(244, 167, 185, 0.2);
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+.sport-info h3 {
+    margin: 0 0 18px;
+    font-family: var(--police-titre);
+    font-size: 2.2rem;
+    color: var(--blanc-creme);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.sub-part-title {
+    margin: 14px 0 5px;
+    font-family: var(--police-titre);
+    font-size: 1.1rem;
+    color: var(--or-vif);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.sport-desc {
+    margin: 0 0 12px;
+    font-family: sans-serif;
+    color: rgba(245, 240, 232, 0.65);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+.athlete-footer-zone {
+    padding: 0 32px 32px;
+    background: #1a0f1e;
+    display: flex;
+    justify-content: flex-start;
+}
+.athlete-anchor {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+}
+.athlete-spotlight {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    background: rgba(30, 38, 60, 0.9);
+    border: 2px dashed rgba(244, 167, 185, 0.3);
+    border-radius: 50px;
+    padding: 6px;
+    width: 84px;
+    height: auto;
+    min-height: 84px;
+    overflow: hidden;
+    z-index: 50;
+    transition: width 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease,
+                background-color 0.4s ease;
+}
+.athlete-avatar {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.athlete-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--or-doux);
+}
+.athlete-details {
+    width: 520px;
+    opacity: 0;
+    padding: 0 22px 0 18px;
+    flex-shrink: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+.athlete-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.athlete-header h5 {
+    margin: 0;
+    font-family: var(--police-titre);
+    font-size: 1.2rem;
+    color: var(--blanc-creme);
+}
+.country-tag {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.athlete-status {
+    display: block;
+    font-family: var(--police-titre);
+    font-size: 0.78rem;
+    color: var(--or-vif);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.athlete-bio {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 0.87rem;
+    color: rgba(245, 240, 232, 0.72);
+    line-height: 1.45;
+}
+@media (hover: hover) {
+    .athlete-anchor:hover .athlete-spotlight {
+        width: 620px;
+        background: #140a18;
+        border-color: var(--or-doux);
+        border-style: solid;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 167, 185, 0.12);
+        border-radius: 30px;
+    }
+    .athlete-anchor:hover .athlete-details {
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: 0.2s;
+    }
+}
+.athlete-anchor.ouvert .athlete-spotlight {
+    width: 620px;
+    background: #140a18;
+    border-color: var(--or-doux);
+    border-style: solid;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 167, 185, 0.12);
+    border-radius: 30px;
+}
+.athlete-anchor.ouvert .athlete-details {
+    opacity: 1;
+    pointer-events: auto;
+}
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 15, 30, 0.92);
+    color: var(--blanc-creme);
+    border: 1px solid rgba(244, 167, 185, 0.25);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-btn:hover {
+    background: var(--or-doux);
+    color: var(--bleu-nuit);
+    border-color: var(--or-doux);
+    transform: translateY(-50%) scale(1.1);
+}
+.prev-btn { left: 14px; }
+.next-btn { right: 14px; }
+.leaderboard-section {
+    width: 100%;
+    padding: 100px 0 120px;
+    background: linear-gradient(180deg, #050306 0%, #080510 100%);
+    position: relative;
+    overflow: hidden;
+}
+.leaderboard-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle, rgba(244, 167, 185, 0.05) 1px, transparent 1px);
+    background-size: 55px 55px;
+    pointer-events: none;
+}
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+.leaderboard-header h2 {
+    font-family: var(--police-titre);
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blanc-creme);
+    margin: 0 0 12px;
+}
+.leaderboard-header h2 span {
+    color: var(--or-vif);
+}
+.leaderboard-header p {
+    font-family: sans-serif;
+    font-size: 1.05rem;
+    color: var(--blanc-dim);
+    margin: 0;
+}
+.leaderboard-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--or-doux), var(--rouge-tokyo));
+    border-radius: 2px;
+    margin: 16px auto 0;
+}
+.leaderboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    width: 90%;
+    max-width: 1380px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+.lb-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(244, 167, 185, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+.lb-card-header {
+    padding: 22px 28px 18px;
+    border-bottom: 1px solid rgba(244, 167, 185, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.lb-card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+.lb-card-icon.countries { background: rgba(244, 167, 185, 0.15); }
+.lb-card-icon.athletes  { background: rgba(192, 57, 43, 0.15); }
+.lb-card-title h3 {
+    margin: 0 0 2px;
+    font-family: var(--police-titre);
+    font-size: 1.05rem;
+    color: var(--blanc-creme);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.lb-card-title p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    color: var(--blanc-dim);
+}
+.lb-list {
+    padding: 8px 0;
+}
+.lb-entry {
+    display: flex;
+    align-items: center;
+    padding: 12px 28px;
+    gap: 14px;
+    transition: background 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    cursor: default;
+}
+.lb-entry:last-child { border-bottom: none; }
+.lb-entry:hover {
+    background: rgba(244, 167, 185, 0.05);
+}
+.lb-entry.rank-1 { background: rgba(255, 215, 0,   0.07); }
+.lb-entry.rank-2 { background: rgba(192, 192, 192, 0.06); }
+.lb-entry.rank-3 { background: rgba(205, 127, 50,  0.06); }
+.lb-entry.rank-1:hover { background: rgba(255, 215, 0,   0.12); }
+.lb-entry.rank-2:hover { background: rgba(192, 192, 192, 0.1); }
+.lb-entry.rank-3:hover { background: rgba(205, 127, 50,  0.1); }
+.lb-rank {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 900;
+    flex-shrink: 0;
+    font-family: 'Arial Black', sans-serif;
+}
+.rank-1 .lb-rank { background: rgba(255, 215, 0, 0.2);   color: #ffd700; border: 1.5px solid rgba(255, 215, 0, 0.4); }
+.rank-2 .lb-rank { background: rgba(192, 192, 192, 0.18); color: #c0c0c0; border: 1.5px solid rgba(192, 192, 192, 0.35); }
+.rank-3 .lb-rank { background: rgba(205, 127, 50, 0.2);  color: #cd7f32; border: 1.5px solid rgba(205, 127, 50, 0.4); }
+.lb-entry:not(.rank-1):not(.rank-2):not(.rank-3) .lb-rank {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.75rem;
+}
+.lb-flag {
+    font-size: 1.4rem;
+    width: 34px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.lb-info { flex: 1; min-width: 0; }
+.lb-name {
+    font-family: var(--police-titre);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--blanc-creme);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+.lb-sub {
+    font-family: sans-serif;
+    font-size: 0.74rem;
+    color: var(--blanc-dim);
+}
+.lb-medals {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+.medal-pill {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+}
+.medal-gold   { background: rgba(255, 215, 0,   0.12); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.25); }
+.medal-silver { background: rgba(192, 192, 192, 0.1);  color: #c8c8c8; border: 1px solid rgba(192, 192, 192, 0.22); }
+.medal-bronze { background: rgba(205, 127, 50,  0.12); color: #e09b5a; border: 1px solid rgba(205, 127, 50, 0.25); }
+.medal-total  { background: rgba(244, 167, 185, 0.1);  color: var(--or-vif); border: 1px solid rgba(244, 167, 185, 0.22); }
+.lb-score-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+.lb-score-bar {
+    width: 76px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.lb-score-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--or-profond), var(--or-vif));
+}
+.rank-1 .lb-score-fill { background: linear-gradient(90deg, #ffd700, #ffe966); }
+.rank-2 .lb-score-fill { background: linear-gradient(90deg, #c0c0c0, #e0e0e0); }
+.rank-3 .lb-score-fill { background: linear-gradient(90deg, #cd7f32, #e09b5a); }
+.lb-score-val {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 900;
+    color: var(--or-doux);
+    min-width: 18px;
+    text-align: right;
+}
+.rank-1 .lb-score-val { color: #ffd700; }
+.rank-2 .lb-score-val { color: #c0c0c0; }
+.rank-3 .lb-score-val { color: #cd7f32; }
+.leaderboard-note {
+    text-align: center;
+    margin-top: 38px;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    color: rgba(245, 240, 232, 0.28);
+    position: relative;
+    z-index: 2;
+}
+.page-footer {
+    padding: 50px 8%;
+    border-top: 1px solid rgba(244, 167, 185, 0.1);
+    background: var(--bleu-nuit);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.footer-brand {
+    font-family: var(--police-titre);
+    font-size: 15px;
+    color: var(--blanc-dim);
+}
+.footer-brand strong {
+    color: var(--or-vif);
+}
+.footer-back {
+    font-family: var(--police-titre);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blanc-dim);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+.footer-back:hover {
+    color: var(--or-vif);
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+.fade-in-delay-1 { animation-delay: 0.1s; }
+.fade-in-delay-2 { animation-delay: 0.25s; }
+.fade-in-delay-3 { animation-delay: 0.4s; }
+.fade-in-delay-4 { animation-delay: 0.6s; }
+.venues-map-section {
+    padding: 100px 5% 80px;
+    background: linear-gradient(180deg, var(--bleu-nuit) 0%, #080d1a 60%, var(--bleu-nuit) 100%);
+    position: relative;
+    overflow: visible;
+}
+.venues-map-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 70% 30%, rgba(244,167,185,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(160,69,90,0.06) 0%, transparent 40%);
+    pointer-events: none;
+}
+.venues-map-header {
+    text-align: center;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 2;
+}
+.venues-map-etiquette {
+    display: inline-block;
+    font-family: var(--police-titre);
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--or-doux);
+    border: 1px solid rgba(244,167,185,0.25);
+    padding: 5px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+.venues-map-titre {
+    font-family: var(--police-titre);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--blanc-creme);
+    line-height: 1.1;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+}
+.venues-map-titre em {
+    color: var(--or-vif);
+    font-style: italic;
+    font-family: var(--police-texte);
+    font-weight: 300;
+}
+.venues-map-sous-titre {
+    font-family: var(--police-texte);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--blanc-dim);
+    max-width: 500px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+}
+.paris-map-container {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto 48px;
+}
+.venue-tooltip {
+    position: absolute;
+    width: 340px;
+    background: linear-gradient(135deg, rgba(14,24,48,0.98) 0%, rgba(10,15,30,0.98) 100%);
+    border: 1px solid rgba(244,167,185,0.18);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.7),
+        0 0 30px rgba(244,167,185,0.07),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.97);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+}
+.venue-tooltip.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+.tooltip-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-left: 3px solid var(--or-vif);
+    padding-left: 14px;
+    margin-bottom: 16px;
+}
+.tooltip-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.tooltip-name {
+    font-family: var(--police-titre);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blanc-creme);
+    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+}
+.tooltip-sport {
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    color: var(--blanc-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.tooltip-medals {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 14px;
+}
+.tooltip-medal-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.3;
+}
+.tm-gold   { font-size: 1rem; }
+.tm-silver { font-size: 1rem; }
+.tm-bronze { font-size: 1rem; }
+.tooltip-desc {
+    font-family: var(--police-texte);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--blanc-dim);
+    line-height: 1.55;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 12px;
+    margin-top: 4px;
+}
+.venues-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--police-titre);
+    font-size: 0.8rem;
+    color: var(--blanc-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px currentColor;
+}
+.paris-map-simple {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background: linear-gradient(135deg, #140a18 0%, #1a0f1e 100%);
+    border-radius: 14px;
+    border: 1px solid rgba(244,167,185,0.14);
+    overflow: visible;
+}
+.map-point {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 10;
+}
+.map-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: transform 0.15s ease;
+}
+.map-point:hover .map-dot {
+    transform: scale(1.4);
+}
+.map-label {
+    font-family: var(--police-titre);
+    font-size: 0.72rem;
+    color: rgba(245,240,232,0.6);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+.seine-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+.map-point {
+    z-index: 10; 
+}
+@keyframes pulse {
+    0%   { transform: scale(1);   opacity: 0.6; }
+    100% { transform: scale(2.8); opacity: 0; }
+}
+.map-dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    animation: pulse 2.2s ease-out infinite;
+}
+.map-dot {
+    position: relative; 
+}
+@media (max-width: 1100px) {
+    .hero-section {
+        padding: 100px 5% 70px;
+        gap: 30px;
+    }
+    .sports-section {
+        padding: 60px 4%;
+    }
+    .leaderboard-section {
+        padding: 60px 4%;
+    }
+    .venues-map-section {
+        padding: 70px 4% 60px;
+    }
+}
+@media (max-width: 1024px) {
+    .ceremoni-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .ceremoni-title-block {
+        text-align: center;
+        position: static;
+    }
+    .decorative-line {
+        margin: 0 auto;
+    }
+    .leaderboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .venue-tooltip {
+        width: 300px;
+    }
+}
+@media (max-width: 768px) {
+    .athlete-footer-zone {
+        padding: 0 16px 20px;
+    }
+    .athlete-anchor {
+        width: 100%;       
+        height: auto;
+    }
+    .athlete-spotlight {
+        position: relative;  
+        top: auto;
+        transform: none;
+        width: 84px;
+        height: 84px;        
+        min-height: 0;
+        max-width: 100%;
+    }
+    .athlete-details {
+        display: none;       
+    }
+    .athlete-anchor.ouvert .athlete-spotlight {
+        width: 100%;         
+        height: auto;
+        min-height: 84px;
+        border-radius: 20px;
+    }
+    .athlete-anchor.ouvert .athlete-details {
+        display: block;
+        width: auto;         
+        flex: 1;
+        min-width: 0;        
+        padding: 0 14px 0 12px;
+    }
+    .page-nav {
+        padding: 14px 18px;
+    }
+    .nav-edition {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+    }
+    .back-btn {
+        font-size: 10px;
+    }
+    .hero-section {
+        flex-direction: column;
+        padding: 90px 5% 50px;
+        min-height: auto;
+        gap: 30px;
+    }
+    .hero-text {
+        flex: none;
+        width: 100%;
+    }
+    .hero-image-container {
+        width: 100%;
+        height: 260px;
+        flex: none;
+    }
+    .blue-tokyo.large { font-size: clamp(3rem, 12vw, 5.5rem); }
+    .white.medium     { font-size: clamp(2.2rem, 8vw, 4rem); }
+    .red.small        { font-size: clamp(1.6rem, 5vw, 2.5rem); }
+    .top-logo {
+        width: 60px;
+        top: 60px;
+        left: 18px;
+    }
+    .chiffres-cles {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .chiffre-cle-carte {
+        padding: 20px 12px;
+    }
+    .contexte-colonnes {
+        grid-template-columns: 1fr;
+    }
+    .section-contexte {
+        padding: 60px 5%;
+    }
+    .sport-card {
+        flex: 0 0 88%;
+    }
+    .carousel-track {
+        padding-left: 6%;
+    }
+    .nav-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+    .main-carousel-title {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+    .leaderboard-header h2 {
+        font-size: clamp(1.6rem, 5vw, 2.4rem);
+    }
+    .lb-entry {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    .lb-name {
+        font-size: 0.85rem;
+    }
+    .lb-sub {
+        font-size: 0.68rem;
+    }
+    .lb-score-bar {
+        width: 55px;
+    }
+    .venues-map-section {
+        padding: 60px 4% 50px;
+    }
+    .venues-map-titre {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+    .venue-tooltip {
+        width: min(280px, 88vw);
+        padding: 15px;
+    }
+    .tooltip-name {
+        font-size: 0.9rem;
+    }
+    .tooltip-medal-row {
+        font-size: 0.75rem;
+    }
+    .tooltip-desc {
+        font-size: 0.82rem;
+    }
+    .venues-legend {
+        gap: 10px 18px;
+    }
+    .legend-item {
+        font-size: 0.72rem;
+    }
+    .page-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 36px 5%;
+    }
+}
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 80px 4% 40px;
+    }
+    .hero-image-container {
+        height: 200px;
+    }
+    .blue-tokyo.large { font-size: clamp(2.5rem, 14vw, 4rem); }
+    .white.medium     { font-size: clamp(1.8rem, 9vw, 3rem); }
+    .chiffres-cles {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .chiffre-cle-valeur {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+    .sport-card {
+        flex: 0 0 94%;
+    }
+    .lb-entry {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .lb-medals, .lb-score-bar-wrap {
+        margin-left: auto;
+    }
+    .venue-tooltip {
+        position: fixed !important;
+        bottom: 0;
+        left: 0 !important;
+        top: auto !important;
+        width: 100vw !important;
+        border-radius: 16px 16px 0 0;
+        border-bottom: none;
+        max-height: 65vh;
+        overflow-y: auto;
+        transform: translateY(20px) !important;
+    }
+    .venue-tooltip.visible {
+        transform: translateY(0) !important;
+    }
+    .venues-legend {
+        gap: 8px 14px;
+    }
+    .legend-item {
+        font-size: 0.68rem;
+    }
+    .venues-map-section {
+        padding: 50px 3% 40px;
+    }
+}
+@media (max-width: 360px) {
+    .blue-tokyo.large { font-size: 2.2rem; }
+    .page-nav { padding: 12px 14px; }
+    .nav-edition { display: none; }
+    .chiffres-cles {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.skyline-footer {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(244, 167, 185, 0.07), transparent 60%),
+        var(--bleu-fonce);
+    border-top: 1px solid rgba(244, 167, 185, 0.2);
+    padding: 64px 24px 72px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.autres-editions-surtitre {
+    font-family: var(--police-titre);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.8rem;
+    color: var(--or-vif);
+    margin: 0 0 8px;
+}
+.autres-editions-titre {
+    font-family: var(--police-titre);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--blanc-creme);
+    margin: 0 0 44px;
+}
+.skyline-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;       
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+.monument-link {
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    text-decoration: none;
+    width: 240px;
+    max-width: 100%;
+    padding: 32px 24px 26px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(244, 167, 185, 0.18);
+    border-radius: 18px;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease;
+}
+.monument-cadre {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 40%, rgba(244, 167, 185, 0.14), rgba(13, 10, 14, 0.4));
+    border: 1px solid rgba(244, 167, 185, 0.3);
+    margin-bottom: 20px;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.monument-img {
+    height: 64px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.88;
+    transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+.monument-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.monument-annee {
+    font-family: var(--police-titre);
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: 0.04em;
+    color: var(--or-vif);
+    line-height: 1;
+}
+.monument-ville {
+    font-family: var(--police-titre);
+    font-size: 1.05rem;
+    color: var(--blanc-creme);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+}
+.monument-pays {
+    font-family: var(--police-titre);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    color: var(--blanc-dim);
+    margin-top: 4px;
+}
+.monument-fleche {
+    font-family: var(--police-titre);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    color: var(--or-doux);
+    margin-top: 16px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.monument-link:hover {
+    transform: translateY(-8px);
+    border-color: var(--or-doux);
+    background: linear-gradient(160deg, rgba(244, 167, 185, 0.10), rgba(255, 255, 255, 0.02));
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 24px rgba(244, 167, 185, 0.1);
+}
+.monument-link:hover .monument-cadre {
+    border-color: var(--or-vif);
+    box-shadow: 0 0 22px rgba(244, 167, 185, 0.3);
+}
+.monument-link:hover .monument-img {
+    opacity: 1;
+    transform: scale(1.06);
+}
+.monument-link:hover .monument-fleche {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 768px) {
+    .skyline-footer {
+        padding: 48px 18px 56px;
+    }
+    .autres-editions-titre {
+        margin-bottom: 28px;
+    }
+    .skyline-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+    .monument-link {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        flex-direction: row;     
+        align-items: center;
+        gap: 18px;
+        padding: 16px 20px;
+    }
+    .monument-cadre {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    .monument-img {
+        height: 40px;
+        opacity: 1;
+    }
+    .monument-infos {
+        align-items: flex-start;  
+    }
+    .monument-annee {
+        font-size: 1.4rem;
+    }
+    .monument-fleche {
+        display: none;            
+    }
+}
