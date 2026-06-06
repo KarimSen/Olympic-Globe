@@ -286,7 +286,36 @@ body {
   background: rgba(10, 10, 35, 0.9);
   box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.07), inset 0 1px 0 rgba(255,255,255,0.02);
 }
+.btn-texte {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-title);
+  font-size: inherit;
+  color: var(--gold-light);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
 
+.btn-texte:hover {
+  color: var(--gold);
+}
+
+.btn-principal {
+  color: #0b0b24;
+}
+
+.lien-pied {
+  color: var(--gold-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.lien-pied:hover {
+  color: var(--gold);
+}
 .enveloppe-champ:focus-within .icone-champ { color: var(--gold); }
 .input-champ.is-error { border-color: var(--error); }
 .input-champ.is-success { border-color: var(--success); } 
